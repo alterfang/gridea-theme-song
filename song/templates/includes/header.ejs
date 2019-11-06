@@ -1,0 +1,17 @@
+      <header class="header mdui-m-b-5">      
+            <div class="container  ">
+                <div class="index-title animated fadeInDown mdui-text-center mdui-text-color-white mdui-m-b-2" style="animation-delay: 0.2s"><a href="<%= themeConfig.domain %>"><%= themeConfig.siteName %></a></div>
+                <div class="mdui-text-color-white animated fadeInDown mdui-text-center  mdui-m-b-3" style="animation-delay: 0.4s"><%- themeConfig.siteDescription %></div>
+           
+            <nav id="nav" class="mdui-text-center animated fadeInDown" style="animation-delay: 0.6s">
+                   <% menus.forEach(function (menu) { %>
+                            <li><a href="<%= menu.link %>"><%= menu.name %></a>
+                                <span class="nav-style top"></span>
+                                <span class="nav-style bottom"></span>
+                                <span class="nav-style left"></span>
+                                <span class="nav-style right"></span>
+                                </li>
+                    <% }); %>
+                  </nav>
+                </div>
+        </header>

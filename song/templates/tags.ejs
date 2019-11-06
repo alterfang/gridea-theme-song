@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+        <%- include('./includes/head', { siteTitle: themeConfig.siteName }) %>
+    <body>
+        <%- include('./includes/header') %>
+        <div class="mdui-container ">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-m-t-1">
+                            <div class="mdui-row-md-3 mdui-row-xs-1">
+
+<% site.tags.forEach(function(tag, index) { %>
+                                <article class="animated fadeIn" style="animation-delay:<%- index * 0.3 +1 %>s;animation-duration: 2s">
+                                        <div class="mdui-col mdui-p-a-1">
+                                          <div class="archives mdui-p-a-3">
+                                            <div class="mdui-m-b-2 archives-title"><a href="<%= tag.link %>"><%= tag.name %></a></div>
+                                            <div class="mdui-typo-subheading mdui-m-b-1 mdui-text-truncate">共有<%= tag.count %>篇文章</div>
+                                          </div>
+                                </article>
+        <% }); %>
+                              </div>
+                      
+                                    
+                        </div>
+                      </div>
+    
+                
+
+              </div>
+         <%- include('./includes/footer-tag') %>
+    </body>
+</html>

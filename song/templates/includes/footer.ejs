@@ -1,0 +1,15 @@
+            <footer class="footer mdui-m-t-5 mdui-text-center">
+               <nav class="social-links">
+                      <ul>
+                      <% ['rss', 'twitter', 'github', 'zhihu', 'facebook','linkedin','telegram','douban','instagram','qq','weibo','youtube'].forEach((item) => { %>
+                      <% if (site.customConfig[item]) { %>	
+                        <li class="social-link"><a href="<%= site.customConfig[item] %>" target="_blank"><i class="iconfont icon-<%= item %>"></i></a></li>
+                          <% } %>
+                           <% }) %>
+                      </ul>
+                    </nav>
+                  <div class="copyright">
+                      <p><%- themeConfig.footerInfo %> <br/> Theme <a href="https://github.com/alterfang/gridea-theme-song/">宋</a> by <a href="https://shanbu.fun/">山卜方</a> </p>
+                  </div>
+                  
+              </footer>

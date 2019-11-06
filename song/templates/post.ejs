@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./includes/head', { siteTitle: `${post.title} | ${themeConfig.siteName}` }) %>
+    <body>
+        <%- include('./includes/header') %>
+        <div class="mdui-container ">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
+                                <article class="mdui-p-a-2 post animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
+                                    <div class="post-title  mdui-m-b-1"><%= post.title %></div>
+                                    <div class="mdui-typo-body-2 mdui-m-b-2" datetime="<%= post.date %>"><%= post.dateFormat %> / <%= post.stats.text %></div>
+                                    <div class="mdui-m-b-2 mdui-typo post-neirong"><%- post.content %></div>
+                                    <div class="mdui-divider mdui-m-b-2"></div>
+                                    <div class="mdui-row-xs-2 post-fenye">
+                                       
+                                        <div class="mdui-col"> <% if (post.prevPost && !post.hideInList) { %><div class="mdui-text-left"><a href="<%= post.prevPost.link %>"><%= post.prevPost.title %></a></div><% } %></div>
+                                        
+
+                                        
+                                        <div class="mdui-col"><% if (post.nextPost && !post.hideInList) { %><div class="mdui-text-right "><a href="<%= post.nextPost.link %>"><%= post.nextPost.title %></a></div> <% } %></div>
+                                       
+                                      </div>
+                                   
+                                    <div class="mdui-divider mdui-m-t-2 mdui-m-b-2"></div>
+                                    <% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
+          <% if (commentSetting.commentPlatform === 'gitalk') { %>
+            <%- include('./includes/gitalk') %>
+          <% } %>
+          <% if (commentSetting.commentPlatform === 'disqus') { %>
+            <%- include('./includes/disqus') %>
+          <% } %>
+        <% } %>
+                                     <%- include('./includes/pinglun') %>
+                                </article>
+
+                                    
+                        </div>
+                      </div>
+    
+                
+
+              </div>
+        <%- include('./includes/footer') %>
+    </body>
+</html>

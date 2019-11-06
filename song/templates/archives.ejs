@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+        <%- include('./includes/head', { siteTitle: themeConfig.siteName }) %>
+    <body>
+        <%- include('./includes/header') %>
+        <div class="mdui-container ">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-10 mdui-col-offset-md-1 mdui-m-t-1">
+                            <div class="mdui-row-md-2 mdui-row-xs-1">
+                                <% let years = []; posts.forEach((item) => { const year = item.date.substring(0, 4); if (!years.includes(year)) { years.push(year); } }); %>
+                                <% years.forEach(function(year) { %>
+
+                    
+                              <% posts.forEach(function(post, index) { %>
+                               <%if (post.date.indexOf(year) !== -1) { %>
+                                <article class="animated fadeIn" style="animation-delay:<%- index * 0.3 +1 %>s;animation-duration: 2s">
+                                        <div class="mdui-col mdui-p-a-1">
+                                          <div class="archives mdui-p-a-3">
+                                            <div class="mdui-typo-body-2 mdui-m-b-1"><%= post.dateFormat %></div>
+                                            <div class="mdui-m-b-2 archives-title"><a href="<%= post.link %>"><%= post.title %></a></div>
+                                            <div class="mdui-typo-subheading mdui-m-b-1 mdui-text-truncate"><%- post.abstract %></div>
+                                          </div>
+                                </article>
+                                <% } %>
+                                <% }); %>
+                                <% }); %>
+                              </div>
+                            <%- include('./includes/fenye') %>
+                                    
+                        </div>
+                      </div>
+    
+                
+
+              </div>
+         <%- include('./includes/footer') %>
+    </body>
+</html>

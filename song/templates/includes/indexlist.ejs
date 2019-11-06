@@ -1,0 +1,8 @@
+                             <% posts.forEach(function(post) { %>
+                               <article class="mdui-p-a-5 index-list mdui-m-b-3 animated fadeIn" style="animation-delay: 0.8s;animation-duration: 2s">
+                                    <div class="mdui-typo-body-2 mdui-m-b-1" datetime="<%= post.date %>"><%= post.dateFormat %></div>
+                                    <div class="mdui-typo-headline mdui-m-b-3 index-list-title index-guo"><a href="<%= post.link %>"><%= post.title %></a></div>
+                                    <div class="mdui-typo-subheading mdui-m-b-2 index-neirong"><%- post.abstract %></div>
+                                    <div class="index-list-rm index-guo"><a href="<%= post.link %>">Read More</a></div>
+                                </article>
+                                <% }); %>
